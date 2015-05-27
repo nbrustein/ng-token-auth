@@ -54,7 +54,6 @@ module DeviseTokenAuth::Concerns::SetUserByToken
 
 
   def update_auth_header
-    if response.code == '200'
 
       # cannot save object if model has invalid params
       return unless @resource and @resource.valid? and @client_id
@@ -88,7 +87,6 @@ module DeviseTokenAuth::Concerns::SetUserByToken
           response.headers.merge!(auth_header)
         end
 
-      end # end lock
     end
   end
 

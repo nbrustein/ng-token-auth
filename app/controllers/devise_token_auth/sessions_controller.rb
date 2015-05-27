@@ -26,6 +26,7 @@ module DeviseTokenAuth
       end
 
       if @resource and valid_params?(field, q_value) and @resource.valid_password?(resource_params[:password]) and @resource.confirmed?
+
         # create client id
         @client_id = SecureRandom.urlsafe_base64(nil, false)
         @token     = SecureRandom.urlsafe_base64(nil, false)
@@ -53,6 +54,7 @@ module DeviseTokenAuth
         }, status: 401
 
       else
+        @resource = nil
         render json: {
           errors: ["Invalid login credentials. Please try again."]
         }, status: 401
