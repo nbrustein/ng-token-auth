@@ -142,11 +142,7 @@ angular.module('ng-token-auth', ['ipCookie'])
               delete ev.data.oauth_registration
               @handleValidAuth(ev.data, true)
               $rootScope.$broadcast('auth:login-success', ev.data)
-<<<<<<< HEAD
-              if oauthRegistration == true
-=======
               if oauthRegistration
->>>>>>> oauth-registration-event
                 $rootScope.$broadcast('auth:oauth-registration', ev.data)
             if ev.data.message == 'authFailure'
               error = {
